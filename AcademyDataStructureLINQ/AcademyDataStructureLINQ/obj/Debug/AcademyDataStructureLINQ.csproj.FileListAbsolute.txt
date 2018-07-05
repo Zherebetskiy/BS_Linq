@@ -1,0 +1,8 @@
+C:\Users\zhere\OneDrive\Документи\GitHub\BS_Linq\BS_Linq\AcademyDataStructureLINQ\AcademyDataStructureLINQ\bin\Debug\AcademyDataStructureLINQ.exe.config
+C:\Users\zhere\OneDrive\Документи\GitHub\BS_Linq\BS_Linq\AcademyDataStructureLINQ\AcademyDataStructureLINQ\bin\Debug\AcademyDataStructureLINQ.exe
+C:\Users\zhere\OneDrive\Документи\GitHub\BS_Linq\BS_Linq\AcademyDataStructureLINQ\AcademyDataStructureLINQ\bin\Debug\AcademyDataStructureLINQ.pdb
+C:\Users\zhere\OneDrive\Документи\GitHub\BS_Linq\BS_Linq\AcademyDataStructureLINQ\AcademyDataStructureLINQ\bin\Debug\Newtonsoft.Json.dll
+C:\Users\zhere\OneDrive\Документи\GitHub\BS_Linq\BS_Linq\AcademyDataStructureLINQ\AcademyDataStructureLINQ\bin\Debug\Newtonsoft.Json.xml
+C:\Users\zhere\OneDrive\Документи\GitHub\BS_Linq\BS_Linq\AcademyDataStructureLINQ\AcademyDataStructureLINQ\obj\Debug\AcademyDataStructureLINQ.csprojResolveAssemblyReference.cache
+C:\Users\zhere\OneDrive\Документи\GitHub\BS_Linq\BS_Linq\AcademyDataStructureLINQ\AcademyDataStructureLINQ\obj\Debug\AcademyDataStructureLINQ.exe
+C:\Users\zhere\OneDrive\Документи\GitHub\BS_Linq\BS_Linq\AcademyDataStructureLINQ\AcademyDataStructureLINQ\obj\Debug\AcademyDataStructureLINQ.pdb

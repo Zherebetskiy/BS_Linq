@@ -1,11 +1,15 @@
-﻿using System;
+﻿using AcademyDataStructureLINQ.Models;
+using System;
+using System.Collections.Generic;
 
 namespace AcademyDataStructureLINQ
 {
     public class Menu
     {
+        Queries queries = new Queries();
+
         public void MainMenu()
-        {
+        {         
             while (true)
             {
                 Console.WriteLine("Please, chose the option.");
@@ -22,22 +26,22 @@ namespace AcademyDataStructureLINQ
                 switch (key)
                 {
                     case '1':
-                        Queries.GetAmountOfCommentsByUserId(EnteredData());
+                        GetAmountOfCommentsByUserIdPrint();
                         break;
                     case '2':
-                        Queries.GetAllCommentsByUserId(EnteredData());
+                        GetAllCommentsByUserIdPrint();
                         break;
                     case '3':
-                        Queries.GetTodosByUserId(EnteredData());
+                        GetTodosByUserIdPrint();
                         break;
                     case '4':
-                        Queries.GetListOfUsers();
+                        GetListOfUsersPrint();
                         break;
                     case '5':
-                        Queries.GetUserInformation(EnteredData());
+                        GetUserInformationPrint();
                         break;
                     case '6':
-                        Queries.GetPostInformation(EnteredData());
+                        GetPostInformationPrint();
                         break;
                     default:
                         Console.WriteLine("Sorry, you input invalid data.");
@@ -46,10 +50,116 @@ namespace AcademyDataStructureLINQ
             }
         }
 
-        int EnteredData()
+        void GetAmountOfCommentsByUserIdPrint()
+        {
+            dynamic amountOfComments = queries.GetAmountOfCommentsByUserId(EnterUserId());
+
+            Console.WriteLine($"Count of comments for all users' posts");
+
+            foreach (var item in amountOfComments)
+            {
+                Console.WriteLine($"Post {item.post} has {item.amountOfComm} comments");
+            }
+
+            Console.WriteLine();
+        }
+
+        void GetAllCommentsByUserIdPrint()
+        {
+            dynamic comments = queries.GetAllCommentsByUserId(EnterUserId(), EnterLength());
+
+            Console.WriteLine($"All comments for user where body is less then 50");
+
+            ShowComments(comments);
+
+            Console.WriteLine();
+        }
+
+        void GetTodosByUserIdPrint()
+        {
+            dynamic todos = queries.GetTodosByUserId(EnterUserId());
+
+            Console.WriteLine($"All completed todos for user");
+
+            ShowTodos(todos);
+
+            Console.WriteLine();
+        }
+
+        void GetListOfUsersPrint()
+        {
+            dynamic result = queries.GetTodosByUserId(EnterUserId());
+
+            Console.WriteLine($"List of users ordered by alphabetical");
+
+            foreach (var item in result)
+            {
+                Console.WriteLine($"User {item.u}");
+                ShowTodos(item.todos);
+            }
+
+            Console.WriteLine();
+        }
+
+        void GetUserInformationPrint()
+        {
+            dynamic result = queries.GetUserInformation(EnterUserId(), EnterLength());
+
+            foreach (var item in result)
+            {
+                Console.WriteLine($" User: {item.user}\n Post:{item.lastPost}\n Amount of comments:{item.amountOfComm}\n Uncompleted tasks:{item.uncompletedTasks}\n Popular post by comments:{item.popularPostByComm}\n Popular post by likes:{item.popularPostByLikes}");
+            }
+            Console.WriteLine();
+        }
+
+        void GetPostInformationPrint()
+        {
+            dynamic post = queries.GetPostInformation(EnterUserId(), EnterLength());
+
+            Console.WriteLine($"Information about post");
+
+            foreach (var item in post)
+            {
+                Console.WriteLine($"Post {item.post}\nlonger comment:{item.longerComment}\nliker comment:{item.likerComment}\namount of comments:{item.amountOfComments}");
+            }
+
+            Console.WriteLine();
+        }
+
+        int EnterUserId()
         {
             Console.WriteLine("Enter the users' id");
             return int.Parse(Console.ReadLine());
+        }
+
+        int EnterLength()
+        {
+            Console.WriteLine("Enter the length");
+            return int.Parse(Console.ReadLine());
+        }
+
+         void ShowTodos(IEnumerable<Todo> todos)
+        {
+            foreach (var todo in todos)
+            {
+                Console.WriteLine(todo);
+            }
+        }
+
+         void ShowPost(IEnumerable<Post> posts)
+        {
+            foreach (var post in posts)
+            {
+                Console.WriteLine(post);
+            }
+        }
+
+         void ShowComments(IEnumerable<Comment> comments)
+        {
+            foreach (var comment in comments)
+            {
+                Console.WriteLine(comment);
+            }
         }
     }
 }
